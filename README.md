@@ -1,3 +1,3 @@
-# Crawl-commic
+# Commic-Crawler
 My own hands-on java projects.(incomplete)
  - Trying download image from https://saytruyen.com/
