@@ -12,7 +12,7 @@ public class Main{
         Help helper = new Help();
         String direct = helper.getDirect();
         System.out.println(direct.length());
-        String url = "https://saytruyen.com/truyen-dang-nhap-murim.html";
+        String url = "https://saytruyen.net/truyen-toan-tri-doc-gia.html";
         CrawlChap crawler = new CrawlChap(url);
         while (true) {
             showMenu();

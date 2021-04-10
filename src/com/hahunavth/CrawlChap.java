@@ -55,7 +55,7 @@ public class CrawlChap {
     public ArrayList<Chapter> getAllChapInPage(String urls) throws IOException {
         ArrayList<Chapter> list_chap = new ArrayList<>();
         Document document = Jsoup.connect(urls).get();
-        Elements elms = document.getElementsByClass("list-chapter");
+        Elements elms = document.getElementsByClass("chap-item");
         for (int i = 0; i < elms.size(); i++) {
             Elements elm_row = elms.get(i).getElementsByTag("a");
             for (int j = 0; j < elm_row.size(); j++) {
@@ -70,7 +70,7 @@ public class CrawlChap {
     public ArrayList<String> listImgOnPage(String pageURL) throws IOException {
         Document document = Jsoup.connect(pageURL).get();
         ArrayList<String> list_img = new ArrayList<>();
-        Elements elms = document.getElementsByClass("content-des-info fs18").select("img");
+        Elements elms = document.getElementById("lst_content").select("img");
 
         for (int i = 0; i < elms.size(); i++) {
             String url = elms.get(i).attr("src");
@@ -79,14 +79,15 @@ public class CrawlChap {
             }
             list_img.add(url);
         }
-        System.out.println(document.getElementsByClass("content-des-info fs18").select("img"));
+        System.out.println(document.getElementsByClass("lst_content").select("img"));
         return list_img;
     }
 
     private void saveImg(String src_image, String name, String dir) throws IOException{
         Image image = null;
        try {
-            URL url = new URL("http://www.yahoo.com/image_to_read.jpg");
+            URL url = new URL(src_image);
+           System.out.println(src_image);
             image = ImageIO.read(url);
         } catch (IOException e) {
             System.out.println(e);
@@ -97,7 +98,7 @@ public class CrawlChap {
 
     private void saveFile(Chapter chap, String dir) throws IOException{
         try {
-        System.out.println(chap.getUrl());
+            System.out.println(chap.getUrl());
             ArrayList<String> list_img = listImgOnPage(chap.getUrl());
             System.out.println(list_img.size());
             for (int i = 0; i < list_img.size(); i++) {

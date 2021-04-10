@@ -31,7 +31,7 @@ public class Chapter {
                 idx = i;
             }
         }
+        System.out.println(tmp.substring(0, idx));
         return tmp.substring(0, idx);
     }
-
 }
