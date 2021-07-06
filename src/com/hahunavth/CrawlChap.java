@@ -23,6 +23,7 @@ public class CrawlChap {
     }
 
     public void GetListChap() throws IOException {
+        System.out.println(url);
         listChap = getAllChapInPage(url);
         printListChap();
     }
@@ -53,6 +54,7 @@ public class CrawlChap {
     }
 
     public ArrayList<Chapter> getAllChapInPage(String urls) throws IOException {
+        System.out.println(urls);
         ArrayList<Chapter> list_chap = new ArrayList<>();
         Document document = Jsoup.connect(urls).get();
         Elements elms = document.getElementsByClass("chap-item");
