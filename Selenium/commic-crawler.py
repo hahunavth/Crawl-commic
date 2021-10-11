@@ -193,7 +193,7 @@ def get_commic_details(url):
 	for i in listchapter:
 		# sleep(1)
 		print(i.get_attribute("href"))
-		links.append(i.get_attribute("href"))
+		links.insert(0, i.get_attribute("href"))
 
 	for i in links:
 		imgs = get_comic_images(i, comic_id)
