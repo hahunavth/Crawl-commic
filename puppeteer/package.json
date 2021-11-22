@@ -1,0 +1,11 @@
+{
+  "name": "crawler",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "hahunavth",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^0.24.0",
+    "jsdom": "^18.1.0"
+  }
+}
